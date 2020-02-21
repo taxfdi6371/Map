@@ -15,7 +15,7 @@ public class Intro extends Activity {
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
-                Intent i = new Intent(Intro.this,MainActivity.class);
+                Intent i = new Intent(Intro.this,MapsActivity.class);
                 startActivity(i);
                 finish();
             }
