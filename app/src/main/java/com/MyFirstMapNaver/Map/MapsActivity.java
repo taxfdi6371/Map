@@ -25,10 +25,9 @@ public class MapsActivity extends Activity implements OnMapReadyCallback {
         setContentView(R.layout.mapsactivity);
         mapView = findViewById(R.id.map_view);
         mapView.getMapAsync(this);
-        locationSource =
-                new FusedLocationSource(this, LOCATION_PERMISSION_REQUEST_CODE);
+        locationSource = new FusedLocationSource(this, LOCATION_PERMISSION_REQUEST_CODE);
     }
-
+//
     @Override
     public void onMapReady(@NonNull NaverMap naverMap) {
         Marker marker = new Marker();
