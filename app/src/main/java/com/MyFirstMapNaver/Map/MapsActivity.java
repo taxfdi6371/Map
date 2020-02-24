@@ -6,6 +6,7 @@ import androidx.annotation.NonNull;
 
 
 import com.naver.maps.geometry.LatLng;
+import com.naver.maps.map.LocationTrackingMode;
 import com.naver.maps.map.MapView;
 import com.naver.maps.map.NaverMap;
 import com.naver.maps.map.OnMapReadyCallback;
@@ -26,7 +27,6 @@ public class MapsActivity extends Activity implements OnMapReadyCallback {
         mapView.getMapAsync(this);
         locationSource =
                 new FusedLocationSource(this, LOCATION_PERMISSION_REQUEST_CODE);
-        naverMap.setLocationTrackingMode(LocationTrackingMode.Follow);
     }
 
     @Override
@@ -34,7 +34,7 @@ public class MapsActivity extends Activity implements OnMapReadyCallback {
         Marker marker = new Marker();
         marker.setPosition(new LatLng(37.5670135, 126.9783740));
         marker.setMap(naverMap);
-        naverMap.setLocationSource(locationSource);
+        naverMap.setLocationTrackingMode(LocationTrackingMode.Follow);
     }
     @Override
     public void onRequestPermissionsResult(int requestCode,
