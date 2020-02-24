@@ -7,6 +7,7 @@ import android.content.pm.PackageManager;
 import android.location.LocationManager;
 import android.os.Bundle;
 import android.provider.Settings;
+import android.os.Bundle;
 import android.widget.Toast;
 
 import androidx.core.app.ActivityCompat;
@@ -25,6 +26,7 @@ public class Intro extends Activity {
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
+
 //GPS화면 띄우기 인데 여기 잘 모르겠음
                 LocationManager service = (LocationManager) getSystemService(LOCATION_SERVICE);
                 boolean enabled = service.isProviderEnabled(LocationManager.GPS_PROVIDER);

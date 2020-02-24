@@ -2,12 +2,15 @@ package com.MyFirstMapNaver.Map;
 
 import android.Manifest;
 import android.app.Activity;
+
 import android.content.Context;
 import android.content.pm.PackageManager;
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
 import android.os.Build;
+import android.content.pm.PackageManager;
+
 import android.os.Bundle;
 import android.widget.Toast;
 
@@ -30,6 +33,7 @@ public class MapsActivity extends Activity implements OnMapReadyCallback {
     private static final int LOCATION_PERMISSION_REQUEST_CODE = 1000;
     private FusedLocationSource locationSource;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         MapView mapView;
@@ -40,12 +44,25 @@ public class MapsActivity extends Activity implements OnMapReadyCallback {
         mapView.getMapAsync(this);
 
     }
+
+
     @Override
-    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions,  @NonNull int[] grantResults) {
-        if (locationSource.onRequestPermissionsResult(requestCode, permissions, grantResults)) {
-            return;
+    public void onRequestPermissionsResult(int requestCode, String permissions[], int[] grantResults) {
+        switch (requestCode) {
+            case MY_PERMISSIONS_REQUEST_LOCATION: {
+                // If request is cancelled, the result arrays are empty.
+                if (grantResults.length > 0
+                        && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+
+                    Toast.makeText(this,"승인이 허가되어 있습니다.",Toast.LENGTH_LONG).show();
+
+                } else {
+                    Toast.makeText(this,"아직 승인받지 않았습니다.",Toast.LENGTH_LONG).show();
+                }
+                return;
+            }
+
         }
-                super.onRequestPermissionsResult(requestCode, permissions, grantResults);
     }
 
 
